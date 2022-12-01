@@ -1,0 +1,24 @@
+diff --git a/node_modules/react-native-pspdfkit/index.js b/node_modules/react-native-pspdfkit/index.js
+index 879f47e..4e42459 100644
+--- a/node_modules/react-native-pspdfkit/index.js
++++ b/node_modules/react-native-pspdfkit/index.js
+@@ -24,8 +24,8 @@ class PSPDFKitView extends React.Component {
+     if (Platform.OS === 'ios' || Platform.OS === 'android') {
+       const onCloseButtonPressedHandler = this.props.onCloseButtonPressed
+         ? event => {
+-            this.props.onCloseButtonPressed(event.nativeEvent);
+-          }
++          this.props.onCloseButtonPressed(event.nativeEvent);
++        }
+         : null;
+       return (
+         // eslint-disable-next-line react/jsx-no-undef
+@@ -57,7 +57,7 @@ class PSPDFKitView extends React.Component {
+ 
+   _onDocumentSaved = event => {
+     if (this.props.onDocumentSaved) {
+-      this.props.onDocumentSaved(event.nativeEvent);
++      this.props.onDocumentSaved(event.nativeEvent, this);
+     }
+   };
+ 
