@@ -303,52 +303,57 @@ const generatePDFMenu = [
     name: 'Generate PDF from URL',
     description: 'Generate PDF from internet link.',
     action: async component => {
-      let fileURL = null;
-      const fileName = 'newPDFFromURL';
-      try {
-        fileURL = await getOutputPath(fileName);
-      } catch (e) {
-        console.log(e.message, e.code);
-        alert(e.message);
-      }
+      component.props.navigation.push('GeneratePDF', {
+        // documentPath: `PDFs/${documentName(fileName)}`,
+        // fullPath: mainPath,
+        title: 'Generate PDF from URL',
+      });
+      // let fileURL = null;
+      // const fileName = 'newPDFFromURL';
+      // try {
+      //   fileURL = await getOutputPath(fileName);
+      // } catch (e) {
+      //   console.log(e.message, e.code);
+      //   alert(e.message);
+      // }
 
-      const configuration = {
-        filePath: fileURL,
-        override: true,
-      };
-      let originURL = 'https://pspdfkit.com';
+      // const configuration = {
+      //   filePath: fileURL,
+      //   override: true,
+      // };
+      // let originURL = 'https://pspdfkit.com';
 
-      try {
-        let { fileURL: outputURL } = await Processor.generatePDFFromHtmlURL(
-          configuration,
-          originURL,
-        );
-        // Do something with new file
+      // try {
+      //   let { fileURL: outputURL } = await Processor.generatePDFFromHtmlURL(
+      //     configuration,
+      //     originURL,
+      //   );
+      //   // Do something with new file
 
-        if (Platform.OS === 'android') {
-          PSPDFKit.present(outputURL, { title: 'Generate PDF from URL' });
-          return;
-        }
+      //   if (Platform.OS === 'android') {
+      //     PSPDFKit.present(outputURL, { title: 'Generate PDF from URL' });
+      //     return;
+      //   }
 
-        // In this example, we will open it in PSPDFKit view component from the same location where other pdf documents resides, PDFs folder in the root of the RN app
-        await extractAsset(
-          outputURL,
-          documentName(fileName),
-          async mainPath => {
-            if (await fileExists(mainPath)) {
-              console.log(mainPath, "main");
-              component.props.navigation.push('GeneratePDF', {
-                documentPath: `PDFs/${documentName(fileName)}`,
-                fullPath: mainPath,
-                title: 'Generate PDF from URL',
-              });
-            }
-          },
-        );
-      } catch (e) {
-        console.log(e.message, e.code);
-        alert(e.message);
-      }
+      //   // In this example, we will open it in PSPDFKit view component from the same location where other pdf documents resides, PDFs folder in the root of the RN app
+      //   await extractAsset(
+      //     outputURL,
+      //     documentName(fileName),
+      //     async mainPath => {
+      //       if (await fileExists(mainPath)) {
+      //         console.log(mainPath, "main");
+      //         component.props.navigation.push('GeneratePDF', {
+      //           documentPath: `PDFs/${documentName(fileName)}`,
+      //           fullPath: mainPath,
+      //           title: 'Generate PDF from URL',
+      //         });
+      //       }
+      //     },
+      //   );
+      // } catch (e) {
+      //   console.log(e.message, e.code);
+      //   alert(e.message);
+      // }
     },
   },
   {

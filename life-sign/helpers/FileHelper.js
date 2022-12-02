@@ -18,7 +18,7 @@ export const readFile = async path => {
 
 const getOutputPath = async filename => {
   const { tempDir } = await Processor.getTemporaryDirectory();
-  return `${tempDir}/${filename}`;
+  return `${tempDir}${filename}`;
 };
 
 const extractAsset = async (fileURL, fileName, callBack) => {
