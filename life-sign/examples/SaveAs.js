@@ -1,5 +1,5 @@
 import { BaseExampleAutoHidingHeaderComponent } from '../helpers/BaseExampleAutoHidingHeaderComponent';
-import { Button, processColor, View } from 'react-native';
+import { Text, processColor, View, TouchableOpacity, StyleSheet } from 'react-native';
 import PSPDFKitView from 'react-native-pspdfkit';
 import {
   pspdfkitColor,
@@ -16,6 +16,9 @@ export class SaveAs extends BaseExampleAutoHidingHeaderComponent {
     super(props);
     const { navigation } = this.props;
     this.pdfRef = React.createRef();
+    this.state = {
+      isLoading: false,
+    };
 
     navigation.addListener('beforeRemove', e => {
       this.pdfRef?.current?.destroyView();
@@ -42,51 +45,62 @@ export class SaveAs extends BaseExampleAutoHidingHeaderComponent {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.flex}>
-            <Button
-              onPress={() => {
+            <TouchableOpacity
+              disabled={this.state.isLoading}
+              onPress={async () => {
+                this.setState({ isLoading: true });
                 // Ensure that the path to the new document is a writable document path
                 // You can use a React Native package like https://github.com/rnmods/react-native-document-picker to allow users of your application to select the path and the file name for the new document
+                const fileName = 'newdocument.pdf';
                 const newDocumentPath =
-                  fileSystem.DocumentDirectoryPath + '/newdocument.pdf';
-                // Delete the document if it already exists in that path.
-                fileSystem
-                  .exists(newDocumentPath)
-                  .then(exists => {
-                    if (exists) {
-                      fileSystem.unlink(newDocumentPath);
-                    }
-                  })
-                  // First, save all annotations in the current document.
-                  .then(() => {
-                    this.pdfRef.current
-                      .saveCurrentDocument()
-                      .then(saved => {
-                        // Then, embed all the annotations
-                        PSPDFKit.processAnnotations(
-                          'embed',
-                          'all',
-                          writableDocumentPath,
-                          newDocumentPath,
-                        )
-                          .then(success => {
-                            if (success) {
-                              console.log(success);
-                              alert(`Document saved as ${newDocumentPath}`);
-                            } else {
-                              alert('Failed to save document');
-                            }
-                          })
-                          .catch(error => {
-                            alert(JSON.stringify(error));
-                          });
-                      })
-                      .catch(error => {
-                        alert(JSON.stringify(error));
-                      });
+                  fileSystem.DocumentDirectoryPath + '/' + fileName;
+                try {
+                  const isExists = await fileSystem.exists(newDocumentPath);
+
+                  if (isExists) {
+                    await fileSystem.unlink(newDocumentPath);
+                  }
+
+                  await this.pdfRef.current.saveCurrentDocument();
+                  await PSPDFKit.processAnnotations(
+                    'embed',
+                    'all',
+                    writableDocumentPath,
+                    newDocumentPath,
+                  );
+
+                  const formData = new FormData();
+
+                  formData.append('file', {
+                    name: fileName,
+                    uri: newDocumentPath,
+                    type: 'application/pdf',
                   });
+
+                  const res = await fetch(
+                    //'https://dominion.jp.ngrok.io/upload',
+                    'https://administrator.lifetek.vn:203/api/save-file',
+                    {
+                      body: formData,
+                      method: 'POST',
+                      headers: {
+                        'Content-Type': 'multipart/form-data',
+                      },
+                    },
+                  ).then(r => r.json());
+                  alert(JSON.stringify(res));
+                } catch (error) {
+                  alert(error?.message || 'Can not upload file');
+                  console.log('=>>>> Error', error);
+                } finally {
+                  this.setState({ isLoading: false });
+                }
               }}
-              title="Save As"
-            />
+            >
+              <Text style={{ color: 'green', fontSize: 18 }}>
+                {this.state.isLoading ? 'Uploading....' : 'Save As'}
+              </Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -94,12 +108,13 @@ export class SaveAs extends BaseExampleAutoHidingHeaderComponent {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   flex: { flex: 1 },
   colorView: color => ({ flex: 1, color }),
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     alignItems: 'center',
+    height: 65,
     padding: 10,
   },
-};
+});

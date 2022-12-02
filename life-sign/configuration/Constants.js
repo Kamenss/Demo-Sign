@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 
 const tiffImageName = 'PSPDFKit_Image_Example.tiff';
 const formDocumentName = 'Form_example.pdf';
-export const exampleDocumentName = 'PSPDFKit_Quickstart_Guide.pdf';
+export const exampleDocumentName = 'HADO.pdf';
 
 export const exampleImage = 'PSPDFKit_Image_Example.jpg';
 export const exampleImagePath =

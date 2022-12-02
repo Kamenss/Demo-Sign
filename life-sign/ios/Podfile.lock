@@ -75,9 +75,9 @@ PODS:
   - glog (0.3.5)
   - libevent (2.1.12)
   - OpenSSL-Universal (1.1.1100)
-  - PSPDFKit (12.0.0):
-    - PSPDFKit/Core (= 12.0.0)
-  - PSPDFKit/Core (12.0.0)
+  - PSPDFKit (12.0.1):
+    - PSPDFKit/Core (= 12.0.1)
+  - PSPDFKit/Core (12.0.1)
   - RCT-Folly (2021.07.22.00):
     - boost
     - DoubleConversion
@@ -404,7 +404,7 @@ DEPENDENCIES:
   - FlipperKit/SKIOSNetworkPlugin (= 0.125.0)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
   - OpenSSL-Universal (= 1.1.1100)
-  - PSPDFKit (~> 12.0.0)
+  - PSPDFKit (~> 12.0.1)
   - RCT-Folly (from `../node_modules/react-native/third-party-podspecs/RCT-Folly.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -556,7 +556,7 @@ SPEC CHECKSUMS:
   glog: 04b94705f318337d7ead9e6d17c019bd9b1f6b1b
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  PSPDFKit: 909e0fa60ffb44f999b00c8f0522945731a7c870
+  PSPDFKit: f4f28ff0250d7d279b273a29fb868c1c7b6e86b3
   RCT-Folly: 0080d0a6ebf2577475bda044aa59e2ca1f909cda
   RCTRequired: 21229f84411088e5d8538f21212de49e46cc83e2
   RCTTypeSafety: 62eed57a32924b09edaaf170a548d1fc96223086
@@ -593,6 +593,6 @@ SPEC CHECKSUMS:
   Yoga: eca980a5771bf114c41a754098cd85e6e0d90ed7
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 7068a093aeae83128547f18913014842a1af4078
+PODFILE CHECKSUM: 6a02609c70471e926bf20e134748cd3fce5b06c5
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.11.2

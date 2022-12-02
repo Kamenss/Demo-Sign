@@ -33,10 +33,10 @@ import { PSPDFKit } from './helpers/PSPDFKit';
 // specific initialization). If you want to use a different license key for evaluation (e.g. a production license), you can uncomment
 // the next line and set the license key.
 // To set the license key for both platforms, use:
-PSPDFKit.setLicenseKeys("YOUR_REACT_NATIVE_ANDROID_LICENSE_KEY_GOES_HERE", "YOUR_REACT_NATIVE_IOS_LICENSE_KEY_GOES_HERE");
+// PSPDFKit.setLicenseKeys("YOUR_REACT_NATIVE_ANDROID_LICENSE_KEY_GOES_HERE", "YOUR_REACT_NATIVE_IOS_LICENSE_KEY_GOES_HERE");
 //
 // To set the license key for the currently running platform, use:
-PSPDFKit.setLicenseKey("YOUR_REACT_NATIVE_LICENSE_KEY_GOES_HERE");
+// PSPDFKit.setLicenseKey("YOUR_REACT_NATIVE_LICENSE_KEY_GOES_HERE");
 
 class Catalog extends Component {
   static navigationOptions = {

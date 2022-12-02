@@ -15,6 +15,10 @@
 		664B245FC22351276B174745 /* libPods-lifeSign.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A56EAF3020A2A292EBE8EB3 /* libPods-lifeSign.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AC21B15D26C644620072769A /* PDFs in Resources */ = {isa = PBXBuildFile; fileRef = AC21B15C26C644620072769A /* PDFs */; };
+		AC255ACE29393335002FCFB0 /* PSPDFKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC255AC7293931D1002FCFB0 /* PSPDFKit.xcframework */; };
+		AC255ACF29393335002FCFB0 /* PSPDFKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC255AC7293931D1002FCFB0 /* PSPDFKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AC255AD129393338002FCFB0 /* PSPDFKitUI.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC255ACB293931DE002FCFB0 /* PSPDFKitUI.xcframework */; };
+		AC255AD229393338002FCFB0 /* PSPDFKitUI.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AC255ACB293931DE002FCFB0 /* PSPDFKitUI.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,21 @@
 			remoteInfo = lifeSign;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC255AD029393335002FCFB0 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AC255AD229393338002FCFB0 /* PSPDFKitUI.xcframework in Embed Frameworks */,
+				AC255ACF29393335002FCFB0 /* PSPDFKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* lifeSignTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = lifeSignTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +61,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = lifeSign/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A56EAF3020A2A292EBE8EB3 /* libPods-lifeSign.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-lifeSign.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC21B15C26C644620072769A /* PDFs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PDFs; path = ../../PDFs; sourceTree = "<group>"; };
+		AC255AC7293931D1002FCFB0 /* PSPDFKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PSPDFKit.xcframework; path = Pods/PSPDFKit/PSPDFKit.xcframework; sourceTree = "<group>"; };
+		AC255ACB293931DE002FCFB0 /* PSPDFKitUI.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PSPDFKitUI.xcframework; path = Pods/PSPDFKit/PSPDFKitUI.xcframework; sourceTree = "<group>"; };
 		B5AE657C7E8E553214E77A29 /* Pods-lifeSign-lifeSignTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lifeSign-lifeSignTests.release.xcconfig"; path = "Target Support Files/Pods-lifeSign-lifeSignTests/Pods-lifeSign-lifeSignTests.release.xcconfig"; sourceTree = "<group>"; };
 		BB5864BCDD968804A8575FDC /* Pods-lifeSign-lifeSignTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lifeSign-lifeSignTests.debug.xcconfig"; path = "Target Support Files/Pods-lifeSign-lifeSignTests/Pods-lifeSign-lifeSignTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CCF2C60E3419859904484856 /* Pods-lifeSign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lifeSign.debug.xcconfig"; path = "Target Support Files/Pods-lifeSign/Pods-lifeSign.debug.xcconfig"; sourceTree = "<group>"; };
@@ -61,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC255AD129393338002FCFB0 /* PSPDFKitUI.xcframework in Frameworks */,
+				AC255ACE29393335002FCFB0 /* PSPDFKit.xcframework in Frameworks */,
 				664B245FC22351276B174745 /* libPods-lifeSign.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -102,6 +125,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AC255ACB293931DE002FCFB0 /* PSPDFKitUI.xcframework */,
+				AC255AC7293931D1002FCFB0 /* PSPDFKit.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				8A56EAF3020A2A292EBE8EB3 /* libPods-lifeSign.a */,
 				05DF93B4E873A065B0478DEE /* libPods-lifeSign-lifeSignTests.a */,
@@ -187,6 +212,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				396B24B67DBBB585680BD78B /* [CP] Embed Pods Frameworks */,
 				D6465312D2AFED527E4958AE /* [CP] Copy Pods Resources */,
+				AC255AD029393335002FCFB0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -266,7 +292,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nexport NODE_BINARY=/Users/nongthan/.nvm/versions/node/v16.18.0/bin/node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
 		01A6D10F47A4C6BECFC5440B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -436,6 +462,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = DC367NBJJ2;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -470,6 +497,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = DC367NBJJ2;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = lifeSignTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -500,6 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DC367NBJJ2;
 				ENABLE_BITCODE = NO;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = lifeSign/Info.plist;
@@ -533,6 +562,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DC367NBJJ2;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = lifeSign/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
